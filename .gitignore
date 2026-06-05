@@ -1,0 +1,8 @@
+*.class
+build/
+dist/
+nbproject/private/
+*.log
+.vscode/
+.DS_Store
+Thumbs.db
