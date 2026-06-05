@@ -5,7 +5,8 @@ import java.util.List;
 /*Principio SRP
   Patrón Prototype*/
 
-public class Envio implements Cloneable{
+public class Envio implements Cloneable, ComponenteEnvio//, 04/06: Se agregó ComponenteEnvio (Composite) para permitir que Envio forme parte de una estructura de envíos compuestos (Eso lo puso el copilot de vscode xd)
+{
     private String codigo;
     private String origen;
     private String destino;
@@ -67,5 +68,15 @@ public class Envio implements Cloneable{
         }catch(CloneNotSupportedException e){
             throw new RuntimeException("Error de clonación: ",e);
         }
+    }
+    //04:06: Nuevos overrides para implementar ComponenteEnvio (Composite)
+    @Override
+    public double getPesoTotal() {
+        return this.peso;
+    }
+
+    @Override
+    public void mostrarDetalle() {
+        System.out.println("Envio: " + codigo + " // " + origen + " -> " + destino + " // " + peso + "kg");
     }
 }
